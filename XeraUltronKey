@@ -182,7 +182,7 @@ end)
 
 local function validateKey(key)
 
-    return key == "Key_CcpN92kNigbrthDcca%20%_787" -- Replace this with your key
+    return key == "Key_CcpN92kNigbrthDcca%20%_787" , "KEY787" -- Replace this with your key
 
 end
 
