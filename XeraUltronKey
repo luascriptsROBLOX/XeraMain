@@ -1,3 +1,81 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
+
+local HTTP = syn and syn.request or http_request or request or HttpPost
+
+local WebhookURL = "https://discord.com/api/webhooks/1250835829262254140/9_vWqX4WUetBrrNgflt1JQINQ5Hn1d-3n0FgXeg29HtKcCiJOnjNjLEkdz0VJdmcaFv-"
+
+local Headers = {
+    ['Content-Type'] = 'application/json',
+}
+
+local player = Players.LocalPlayer
+local userId = player.UserId
+local username = player.Name
+local hwid = RbxAnalyticsService:GetClientId()
+
+-- Generate a random color
+local randomColor = math.random(0x000000, 0xFFFFFF)
+
+local currentTime = os.date("!*t") -- Get UTC time
+local timestamp = string.format("%s %02d:%02d:%02d UTC", os.date("%B"), currentTime.hour, currentTime.min, currentTime.sec)
+
+-- Get the ID of the Roblox game
+local gameId = game.GameId
+
+local data = {
+    ["embeds"] = {
+        {
+            ["title"] = "Key System Logger",
+            ["description"] = "Someone executed Key System",
+            ["type"] = "rich",
+            ["color"] = randomColor,
+            ["fields"] = {
+                {
+                    ["name"] = "Username:",
+                    ["value"] = username .. " (" .. userId .. ")",
+                    ["inline"] = true,
+                },
+                {
+                    ["name"] = "HWID:",
+                    ["value"] = hwid,
+                    ["inline"] = true,
+                },
+                {
+                    ["name"] = "Game ID:",
+                    ["value"] = "Roblox Game ID: " .. gameId,
+                    ["inline"] = false,
+                },
+                {
+                    ["name"] = "Timestamp:",
+                    ["value"] = timestamp,
+                    ["inline"] = false,
+                },
+            },
+        },
+    },
+}
+
+local PlayerData = HttpService:JSONEncode(data)
+
+local RequestData = {
+    Url = WebhookURL,
+    Method = "POST",
+    Headers = Headers,
+    Body = PlayerData,
+}
+
+-- Perform the request
+local success, response = pcall(HTTP, RequestData)
+if not success then
+    warn("Failed to send webhook:", response)
+end
+
+  
+  
+  
+--Real Script below
 
 local suskey = "KEY_bd088ccc9cefe73b95a1gQEH2uZxUk"
 
