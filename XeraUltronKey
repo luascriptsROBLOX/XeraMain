@@ -77,7 +77,7 @@ end
   
 --Real Script below
 
-local suskey = "KEY_bd088ccc9cefe73b95a1gQEH2uZxUk", "adminxera2024"
+local suskey = "KEY_ZdDccaK23Ikom1NaghaLokiW"
 
 local GUI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
