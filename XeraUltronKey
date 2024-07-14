@@ -95,7 +95,7 @@ Duration = 5;
 
 wait(5);
 
-local suskey = "KEY_ZdDccaK23Ikom1NaghaLokiW"
+local suskey = "KEY_ZdDccaCo784hAssk%ttps"
 
 local GUI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
